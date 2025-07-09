@@ -1,0 +1,67 @@
+{% for block in section.blocks %}
+    {% case block.type %}
+        {% when 'article_title' %}
+        <h1>{{ block.settings.title | escape }}</h1>
+        {% when 'article_author' %}
+        <small>{{ block.settings.author | escape }}</small>
+        {% when 'article_date' %}
+        <time datetime="{{ block.settings.published_at | date: '%Y-%m-%d' }}">
+            {{ block.settings.published_at | date: '%B %d, %Y' }}
+        </time>
+        {% when 'featured_image' %}
+        <img src="{{ block.settings.image | img_url: 'large' }}" alt="{{ block.settings.image.alt | escape }}">
+        {% when 'article_content' %}
+        <div>{{ block.settings.content }}</div>
+    {% endcase %}
+{% endfor %}
+
+<div>{{ article.content }}</div>
+
+{% schema %}
+{
+  "name": "Article Template",
+  "tag": "section",
+  "class": "article-template-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_author",
+      "label": "Display Author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_published_date",
+      "label": "Display Published Date",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article_title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "article_author",
+      "name": "Author",
+      "limit": 1
+    },
+    {
+      "type": "article_date",
+      "name": "Published Date",
+      "limit": 1
+    },
+    {
+      "type": "featured_image",
+      "name": "Featured Image",
+      "limit": 1
+    },
+    {
+      "type": "article_content",
+      "name": "Content",
+      "limit": 1
+    }
+  ],
+}
+{% endschema %}
