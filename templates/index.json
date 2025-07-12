@@ -25,10 +25,18 @@
         "featured_collection": "",
         "number_of_products_to_show": 4
       }
+    },
+    "contact_form_JeRfAL": {
+      "type": "contact-form",
+      "name": "Contact Form",
+      "settings": {
+        "title": "Contact Us"
+      }
     }
   },
   "order": [
     "featured-collection",
-    "featured_collection_zeL9mw"
+    "featured_collection_zeL9mw",
+    "contact_form_JeRfAL"
   ]
 }
