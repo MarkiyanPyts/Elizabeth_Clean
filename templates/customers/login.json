@@ -2,14 +2,6 @@
     "sections": {
         "template": {
             "type": "template-customer-login",
-            "settings": {
-                "heading": "Sign in to your account",
-                "recover_heading": "Recover your password",
-                "login_button_text": "Sign in",
-                "recover_button_text": "Recover password",
-                "forgot_password_text": "Forgot your password?",
-                "back_to_login_text": "Back to login"
-            }
         }
     },
     "order": ["template"]
