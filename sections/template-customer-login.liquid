@@ -1,12 +1,12 @@
 <div class="h-full flex items-center justify-center py-12 px-6 md:px-4 lg:px-8" x-data="{ loginForm: true, pwRecoverForm: false }">
     <div x-show="loginForm" class="max-w-md w-full space-y-8">
         <div>
-            <h1 class="text-center text-3xl font-bold mt-6">{{ section.settings.heading }}</h1>
+            <h1 class="text-center text-3xl font-bold mt-6">Sign in to your account</h1>
         </div>
         <div class="mt-8">
             {% form 'customer_login' %}
                 {% if form.errors %}
-                    <div class="relative border border-red-400 bg-red-100 text-red 700 px-4 py-3" role="alert">
+                    <div class="relative border border-red-400 bg-red-100 text-red-700 px-4 py-3" role="alert">
                         <strong class="font-bold">Error!</strong>
                         <p class="block sm:inline">{{ form.errors | default_errors }}</p>
                     </div>
@@ -38,12 +38,12 @@
 
                 <div class="my-2 text-sm">
                     <a x-on:click="loginForm = false; pwRecoverForm = true" href="#" class="underline text-gray-500 hover:text-gray-900">
-                        {{ section.settings.forgot_password_text }}
+                        Forgot your password?
                     </a>
                 </div>
                 <div>
                     <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:bg-gray-900">
-                        {{ section.settings.login_button_text }}
+                        Sign in
                     </button>
                 </div>
             {% endform %}
@@ -51,7 +51,7 @@
     </div>
     <div x-show="pwRecoverForm" class="max-w-md w-full space-y-8">
         <div>
-            <h1 class="text-center text-3xl font-bold mt-6">{{ section.settings.recover_heading }}</h1>
+            <h1 class="text-center text-3xl font-bold mt-6">Recover your password</h1>
         </div>
         <div class="mt-8">
             {% form 'recover_customer_password' %}
@@ -75,58 +75,14 @@
 
                 <div>
                     <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:bg-gray-900">
-                        {{ section.settings.recover_button_text }}
+                        Recover password
                     </button>
                 </div>
 
                 <div class="mt-8 text-sm">
-                    <a x-on:click="loginForm = true; pwRecoverForm = false" href="#" class="underline text-gray-500 hover:text-gray-900">{{ section.settings.back_to_login_text }}</a>
+                    <a x-on:click="loginForm = true; pwRecoverForm = false" href="#" class="underline text-gray-500 hover:text-gray-900">Back to login</a>
                 </div>
             {% endform %}
         </div>
     </div>
 </div>
-
-{% schema %}
-{
-    "name": "Customer Login",
-    "settings": [
-        {
-            "type": "text",
-            "id": "heading",
-            "label": "Login Page Heading",
-            "default": "Sign in to your account"
-        },
-        {
-            "type": "text",
-            "id": "recover_heading",
-            "label": "Password Recovery Heading",
-            "default": "Recover your password"
-        },
-        {
-            "type": "text",
-            "id": "login_button_text",
-            "label": "Login Button Text",
-            "default": "Sign in"
-        },
-        {
-            "type": "text",
-            "id": "recover_button_text",
-            "label": "Recovery Button Text",
-            "default": "Recover password"
-        },
-        {
-            "type": "text",
-            "id": "forgot_password_text",
-            "label": "Forgot Password Link Text",
-            "default": "Forgot your password?"
-        },
-        {
-            "type": "text",
-            "id": "back_to_login_text",
-            "label": "Back to Login Link Text",
-            "default": "Back to login"
-        }
-    ]
-}
-{% endschema %}
