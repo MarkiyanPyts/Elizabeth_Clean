@@ -1,0 +1,73 @@
+<div class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    {% if section.settings.background_image %}
+        <img 
+            src="{{ section.settings.background_image | img_url: '1920x1080' }}" 
+            alt="{{ section.settings.background_image.alt | default: section.settings.title }}"
+            class="absolute inset-0 w-full h-full object-cover"
+        >
+    {% else %}
+        <div class="absolute inset-0 bg-gray-200"></div>
+    {% endif %}
+    
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    
+    <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+        {% if section.settings.title != blank %}
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">{{ section.settings.title }}</h1>
+        {% endif %}
+        
+        {% if section.settings.subtitle != blank %}
+            <p class="text-xl md:text-2xl mb-8">{{ section.settings.subtitle }}</p>
+        {% endif %}
+        
+        {% if section.settings.button_text != blank and section.settings.button_url != blank %}
+            <a 
+                href="{{ section.settings.button_url }}" 
+                class="inline-block bg-white text-black px-8 py-3 text-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+            >
+                {{ section.settings.button_text }}
+            </a>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Hero Banner",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Welcome to Our Store",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "default": "Discover amazing products",
+            "label": "Subtitle"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "default": "Shop Now",
+            "label": "Button Text"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Hero Banner"
+        }
+    ]
+}
+{% endschema %}

@@ -9,6 +9,15 @@
  */
 {
   "sections": {
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "title": "Welcome to Our Store",
+        "subtitle": "Discover amazing products",
+        "button_text": "Shop Now",
+        "button_url": "/collections/all"
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -35,6 +44,7 @@
     }
   },
   "order": [
+    "hero-banner",
     "featured-collection",
     "featured_collection_zeL9mw",
     "contact_form_JeRfAL"
