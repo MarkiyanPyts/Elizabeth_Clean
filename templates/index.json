@@ -14,6 +14,7 @@
       "settings": {
         "title": "Welcome to Our Store",
         "subtitle": "Discover amazing products",
+        "background_image": "shopify://shop_images/banner.webp",
         "button_text": "Shop Now",
         "button_url": "/collections/all"
       }
