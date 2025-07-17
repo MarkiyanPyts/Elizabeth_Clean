@@ -1,12 +1,10 @@
-<div class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<div class="relative w-full aspect-video flex items-center justify-center overflow-hidden bg-black">
     {% if section.settings.background_image %}
         <img 
             src="{{ section.settings.background_image | img_url: '1920x1080' }}" 
             alt="{{ section.settings.background_image.alt | default: section.settings.title }}"
             class="absolute inset-0 w-full h-full object-cover"
         >
-    {% else %}
-        <div class="absolute inset-0 bg-gray-200"></div>
     {% endif %}
     
     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
