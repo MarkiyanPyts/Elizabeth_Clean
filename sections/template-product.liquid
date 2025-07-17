@@ -141,9 +141,9 @@
     </div>
 
     <div id="productModelModal">
-        <div x-show="productModalOpen" class="w-full h-full z-50 items-center fixed inset-0">
-            <div class="relative w-full h-full bg-white">
-                <div class="relative">
+        <div x-show="productModalOpen" class="w-full h-full z-50 flex items-center justify-center fixed inset-0 bg-black bg-opacity-50">
+            <div class="relative w-full h-full md:w-3/4 md:h-3/4 md:min-w-[50vw] md:min-h-[50vh] bg-white rounded-lg shadow-xl">
+                <div class="relative h-full flex flex-col">
                     <div class="flex justify-between items-start p-5 border-b">
                         <h2 class="text-xl font-bold text-gray-700">3D Model Preview</h2>
                         <button x-on:click="productModalOpen = false" class="text-gray-400 bg-transparent hover:text-gray-700 rounded text-sm p-2 ml-auto inline-flex items-center">
@@ -151,7 +151,7 @@
                         </button>
                     </div>
 
-                    <div id="body" class="block relative">
+                    <div id="body" class="flex-1 flex items-center justify-center p-4">
 
                     </div>
                 </div>
